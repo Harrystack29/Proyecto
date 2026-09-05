@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caseritos - Tu comida diaria, más fácil y saludable</title>
+    <meta name="description"
+        content="Descubre menús balanceados, recomendaciones personalizadas y pedidos rápidos desde nuestra app.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+
+<body>
+    <!-- Background Ambient Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar-wrapper">
+        <div class="navbar container">
+            <a href="#inicio" class="logo">
+                <img src="assets/images/Caseritos_logo.png?v=3" alt="Caseritos Logo" class="logo-img">
+                <span class="logo-text">Caseritos</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#inicio" class="active">Inicio</a>
+                <a href="#ecosistema">Ecosistema</a>
+                <a href="#funciones">Funciones</a>
+                <a href="#menu">Menú del día</a>
+                <a href="#sucursales">Sucursales</a>
+                <a href="#blog">Blog</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <a href="#descargar" class="btn btn-primary btn-nav">
+                <span>Descargar App</span>
+                <i class="fa-solid fa-download"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero container">
+            <div class="hero-content">
+                <div class="badge-pill">
+                    <span class="badge-dot"></span>
+                    <span>ECOSISTEMA DE ALIMENTACIÓN INTELIGENTE</span>
+                </div>
+                <h1 class="hero-title">
+                    Tu comida diaria,<br>
+                    más <span class="highlight-gradient">fácil y saludable.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Descubre menús balanceados, recomendaciones personalizadas y pedidos rápidos desde nuestra app.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#descargar" class="btn btn-primary btn-lg">
+                        <span>Descargar la App</span>
+                        <i class="fa-solid fa-download"></i>
+                    </a>
+                    <a href="#ecosistema" class="btn btn-secondary btn-lg">
+                        <span>Conocer el Ecosistema</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="app-stores">
+                    <span class="stores-label">Disponible en:</span>
+                    <div class="store-buttons">
+                        <button class="store-btn">
+                            <i class="fa-brands fa-apple"></i>
+                            <div class="store-text">
+                                <small>Consíguelo en</small>
+                                <strong>App Store</strong>
+                            </div>
+                        </button>
+                        <button class="store-btn">
+                            <i class="fa-brands fa-google-play"></i>
+                            <div class="store-text">
+                                <small>Disponible en</small>
+                                <strong>Google Play</strong>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <div class="hero-image-glow"></div>
+                <div class="hero-image-card">
+                    <img src="assets/images/app_mockup_1788375704302.jpg" alt="Caseritos App en smartphones" class="mockup-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="funciones" class="features-wrapper container">
+            <div class="features-card">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Menús Balanceados</h3>
+                        <p>Platillos diseñados por expertos para una alimentación completa y nutritiva.</p>
+                    </div>
+                </div>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Recomendaciones Personalizadas</h3>
+                        <p>Recibe sugerencias según tus objetivos calóricos y preferencias de dieta.</p>
+                    </div>
+                </div>
+                <div class="feature-divider"></div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Ahorra Tiempo</h3>
+                        <p>Pide en segundos, recibe puntual a tu puerta y sin complicaciones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section container">
+            <div class="menu-header">
+                <div class="menu-intro">
+                    <div class="badge-pill badge-wine">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>MENÚ DEL DÍA</span>
+                    </div>
+                    <h2>Siempre algo delicioso esperando por ti.</h2>
+                    <p>Explora nuestras opciones recomendadas de hoy y elige tu favorita.</p>
+                    <div class="menu-actions">
+                        <a href="#" class="btn btn-outline">
+                            <span>Ver menú completo</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <div class="slider-arrows">
+                            <button class="arrow-btn" aria-label="Anterior"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button class="arrow-btn" aria-label="Siguiente"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards">
+                    <!-- Card 1 -->
+                    <div class="dish-card">
+                        <div class="dish-img-box">
+                            <img src="assets/images/bowl_pollo_1788375662175.jpg" alt="Bowl Proteico de Pollo">
+                            <span class="calorie-tag">
+                                <i class="fa-solid fa-bolt"></i> 450 Kcal
+                            </span>
+                            <span class="dish-tag">Alto en Proteína</span>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-rating">
+                                <i class="fa-solid fa-star"></i> 4.9 <span>(120+ opiniones)</span>
+                            </div>
+                            <h3>Bowl Proteico de Pollo</h3>
+                            <p>Pollo a la plancha sazonado, quinoa orgánica, aguacate y vegetales frescos al vapor.</p>
+                            <div class="dish-footer">
+                                <div class="price-container">
+                                    <span class="currency">$</span>
+                                    <span class="price-val">8.50</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm btn-order">
+                                    <span>Pedir</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="dish-card">
+                        <div class="dish-img-box">
+                            <img src="assets/images/ensalada_salmon_1788375672648.jpg" alt="Ensalada Gourmet con Salmón">
+                            <span class="calorie-tag">
+                                <i class="fa-solid fa-bolt"></i> 380 Kcal
+                            </span>
+                            <span class="dish-tag">Gourmet Fresh</span>
+                        </div>
+                        <div class="dish-body">
+                            <div class="dish-rating">
+                                <i class="fa-solid fa-star"></i> 5.0 <span>(95+ opiniones)</span>
+                            </div>
+                            <h3>Ensalada Gourmet con Salmón</h3>
+                            <p>Salmón fresco sellado, mix de verdes crujientes, aderezo cítrico y semillas tostadas.</p>
+                            <div class="dish-footer">
+                                <div class="price-container">
+                                    <span class="currency">$</span>
+                                    <span class="price-val">9.50</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm btn-order">
+                                    <span>Pedir</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Section -->
+        <section id="descargar" class="promo-section container">
+            <div class="promo-card">
+                <div class="promo-content">
+                    <div class="badge-pill badge-dark">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span>LA APP QUE TE ACOMPAÑA</span>
+                    </div>
+                    <h2>Todo lo que necesitas, en la palma de tu mano.</h2>
+                    <ul class="promo-features">
+                        <li>
+                            <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong>Menú del día actualizado</strong>
+                                <p>Nuevos platillos balanceados cada semana.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong>Pedidos en pocos pasos</strong>
+                                <p>Personaliza tus ingredientes y porciones.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong>Seguimiento en tiempo real</strong>
+                                <p>Sabe en todo momento dónde viene tu comida.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                            <div>
+                                <strong>Historial y favoritos</strong>
+                                <p>Repite tus pedidos preferidos con 1 toque.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="promo-qr-box">
+                    <div class="qr-card">
+                        <div class="qr-scanner-frame">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://caseritos.com/app"
+                                alt="Código QR Descargar App" class="qr-image">
+                            <span class="scan-line"></span>
+                        </div>
+                        <div class="qr-meta">
+                            <i class="fa-solid fa-qrcode"></i>
+                            <p>Escanea con tu cámara para descargar la app</p>
+                        </div>
+                        <div class="qr-badges">
+                            <span>iOS</span>
+                            <span class="dot">•</span>
+                            <span>Android</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Usuarios activos</span>
+                    </div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-bowl-rice"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Platillos saludables</span>
+                    </div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                    <div class="stat-info">
+                        <div class="rating-val">
+                            <span class="stat-number">4.9</span>
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="stat-label">Calificación promedio</span>
+                    </div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Sucursales principales</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#inicio" class="logo logo-footer">
+                    <img src="assets/images/Caseritos_logo.png?v=3" alt="Caseritos Logo" class="logo-img">
+                    <span class="logo-text">Caseritos</span>
+                </a>
+                <p>Un ecosistema de alimentación saludable, inteligente y delicioso, creado para mejorar tu estilo de vida diario.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-col">
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#ecosistema">Ecosistema</a>
+                    <a href="#funciones">Funciones</a>
+                    <a href="#menu">Menú del día</a>
+                </div>
+                <div class="nav-col">
+                    <h4>EXPLORAR</h4>
+                    <a href="#sucursales">Sucursales</a>
+                    <a href="#blog">Blog & Tips</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="#descargar">Descargar App</a>
+                </div>
+                <div class="nav-col">
+                    <h4>RECURSOS</h4>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Soporte al cliente</a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h4>SUSCRÍBETE AL BOLETÍN</h4>
+                <p>Recibe promociones exclusivas, nuevos menús y consejos de nutrición semanalmente.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte a Caseritos!');">
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-subscribe" aria-label="Suscribirse">
+                        <span>Suscribirme</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 Caseritos. Todos los derechos reservados. Hecho con pasión por la buena comida.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive script for order buttons & smooth scroll -->
+    <script>
+        document.querySelectorAll('.btn-order').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dishName = btn.closest('.dish-card').querySelector('h3').innerText;
+                alert(`¡Has seleccionado "${dishName}"! Redirigiendo al pedido en la App...`);
+            });
+        });
+    </script>
+</body>
+
+</html>
