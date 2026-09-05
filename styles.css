@@ -243,6 +243,7 @@ img {
 .highlight-gradient {
     background: linear-gradient(135deg, #ff4d79 0%, #ff859f 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1275,8 +1276,34 @@ img {
         padding: 10px 18px;
     }
 
+    .menu-toggle {
+        display: block;
+    }
+
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(246, 235, 224, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        border-radius: var(--radius-lg);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        gap: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(10px);
     }
 
     .hero-title {
@@ -1304,4 +1331,214 @@ img {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+}
+
+/* ==========================================================================
+   Modals, Toasts & Interactive UI
+   ========================================================================== */
+
+/* Menu Toggle (Desktop hidden) */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-on-beige);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Dialog Modal */
+.order-dialog {
+    border: 0;
+    border-radius: var(--radius-lg);
+    padding: 35px;
+    width: min(430px, 90vw);
+    background: var(--bg-beige);
+    color: var(--text-on-beige);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+    margin: auto;
+    overflow: visible;
+}
+
+.order-dialog::backdrop {
+    background: rgba(15, 3, 7, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.order-dialog .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-on-beige-muted);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.order-dialog .close-btn:hover {
+    color: var(--primary);
+}
+
+.order-dialog h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 12px;
+    font-size: 1.8rem;
+}
+
+.order-dialog p {
+    font-size: 0.95rem;
+    color: var(--text-on-beige-muted);
+    margin-bottom: 20px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.order-total span {
+    font-weight: 600;
+    color: var(--text-on-beige-muted);
+}
+
+.order-total b {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: rgba(230, 35, 78, 0.95);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 30px rgba(230, 35, 78, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-glass);
+    color: var(--text-on-beige);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Light Theme Overrides
+   ========================================================================== */
+[data-theme="light"] {
+    --bg-dark: #fff5ef;
+    --bg-dark-secondary: #fbe8df;
+    --bg-card-dark: #ffffff;
+    --bg-card-hover: #fffaf7;
+
+    --bg-beige: #430618;
+    --bg-beige-light: #2b0612;
+    --bg-beige-card: #7b0f2e;
+
+    --text-on-beige: #ffffff;
+    --text-on-beige-muted: #f0cfd0;
+
+    --border-subtle: rgba(123, 15, 46, 0.16);
+    --border-glass: rgba(123, 15, 46, 0.25);
+    --shadow-subtle: 0 10px 30px -10px rgba(65, 7, 24, 0.14);
+}
+
+[data-theme="light"] body {
+    color: #260914;
+}
+
+[data-theme="light"] .hero-subtitle,
+[data-theme="light"] .menu-intro p,
+[data-theme="light"] .dish-body p,
+[data-theme="light"] .footer-bottom,
+[data-theme="light"] .store-text small {
+    color: #704b57;
+}
+
+[data-theme="light"] .dish-body h3,
+[data-theme="light"] .store-text strong {
+    color: #260914;
+}
+
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .btn-secondary,
+[data-theme="light"] .badge-pill,
+[data-theme="light"] .toast {
+    color: #ffffff !important;
+}
+
+[data-theme="light"] .btn-outline {
+    border-color: rgba(123, 15, 46, 0.3);
+    color: var(--primary);
+}
+
+[data-theme="light"] .btn-outline:hover {
+    color: #ffffff;
+}
+
+[data-theme="light"] .store-btn i,
+[data-theme="light"] .arrow-btn {
+    color: #260914;
+}
+
+[data-theme="light"] .arrow-btn {
+    border-color: rgba(123, 15, 46, 0.25);
+}
+
+[data-theme="light"] .arrow-btn:hover {
+    color: #ffffff;
+}
+
+[data-theme="light"] .nav-links a.active {
+    background: rgba(230, 35, 78, 0.12);
+    color: var(--primary);
+}
+
+[data-theme="light"] .theme-toggle {
+    color: #260914;
+    background: rgba(123, 15, 46, 0.08);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(123, 15, 46, 0.15);
 }
