@@ -17,6 +17,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;700;900&display=swap"
         rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         :root {
             --wine: #7b0f2e;
@@ -145,6 +147,12 @@
             color: var(--wine-soft)
         }
 
+        .nav-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
         .nav-cta,
         .primary {
             background: linear-gradient(135deg, var(--wine), var(--wine-soft));
@@ -154,6 +162,9 @@
             font-weight: 800;
             box-shadow: 0 9px 22px rgba(123, 15, 46, .2);
             transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .nav-cta:hover,
@@ -167,7 +178,56 @@
             display: none;
             background: none;
             color: var(--wine);
-            font-size: 26px
+            font-size: 26px;
+            padding: 4px;
+        }
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            background: transparent;
+            color: var(--wine);
+            border: 1px solid rgba(123, 15, 46, .2);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all .35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(123, 15, 46, .1);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon {
+            position: absolute;
+            transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theme-toggle .icon-sun {
+            opacity: 0;
+            transform: scale(0.5) rotate(-90deg);
+        }
+
+        .theme-toggle .icon-moon {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-sun {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        [data-theme="dark"] .theme-toggle .icon-moon {
+            opacity: 0;
+            transform: scale(0.5) rotate(90deg);
         }
 
         /* HERO */
@@ -294,6 +354,9 @@
             padding: 13px 20px;
             font-weight: 800;
             transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .secondary:hover {
@@ -321,6 +384,11 @@
             font-size: 12px;
             font-weight: 800;
             color: var(--wine);
+        }
+
+        .store svg {
+            width: 16px;
+            height: 16px;
         }
 
         /* PHONE MOCKUPS */
@@ -416,7 +484,16 @@
             border-radius: 10px;
             padding: 9px 10px;
             color: #a27a84;
-            font-size: 9px
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .app-search svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
         }
 
         .app-title {
@@ -502,6 +579,23 @@
             font-size: 8px;
         }
 
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .bottom-nav-item svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .bottom-nav-item.active {
+            color: var(--wine);
+            font-weight: 800;
+        }
+
         .bottom-nav b {
             color: var(--wine)
         }
@@ -540,6 +634,11 @@
             place-items: center;
             font-size: 21px;
             color: #ffd5c7;
+        }
+
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
         }
 
         .feature h3 {
@@ -645,6 +744,24 @@
             color: var(--wine-soft)
         }
 
+        .kcal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(123, 15, 46, .08);
+            color: var(--wine-soft);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .kcal-badge svg {
+            width: 13px;
+            height: 13px;
+        }
+
         .order {
             background: linear-gradient(135deg, var(--wine), var(--wine-soft));
             color: white;
@@ -655,11 +772,19 @@
             box-shadow: 0 5px 15px rgba(123, 15, 46, .2);
             transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .order:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 10px 25px rgba(123, 15, 46, .35);
+        }
+
+        .order svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* APP PROMO */
@@ -708,6 +833,12 @@
             display: grid;
             place-items: center;
             font-size: 12px
+        }
+
+        .check span svg {
+            width: 13px;
+            height: 13px;
+            color: white;
         }
 
         .app-visual {
@@ -783,7 +914,17 @@
             background: white;
             padding: 10px;
             border-radius: 11px;
-            font-size: 9px
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .list-row svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+            color: var(--wine-soft);
         }
 
         /* STATS */
@@ -805,6 +946,18 @@
 
         .stat:last-child {
             border: 0
+        }
+
+        .stat-icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .stat-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #ffd5c7;
         }
 
         .stat strong {
@@ -859,9 +1012,15 @@
             border-radius: 13px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-weight: 800;
             color: var(--wine);
             transition: .2s;
+        }
+
+        .eco-list a svg {
+            width: 18px;
+            height: 18px;
         }
 
         .eco-list a:hover {
@@ -920,11 +1079,23 @@
         }
 
         .read {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             margin-top: 12px;
             color: var(--wine);
             font-weight: 900;
-            font-size: 13px
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        .read:hover {
+            gap: 10px;
+        }
+
+        .read svg {
+            width: 14px;
+            height: 14px;
         }
 
         /* NEWSLETTER */
@@ -972,7 +1143,107 @@
             background: #ef7290;
             color: white;
             border-radius: 0 11px 11px 0;
-            font-size: 20px
+            font-size: 20px;
+            display: grid;
+            place-items: center;
+            transition: .2s;
+        }
+
+        .form button:hover {
+            background: #e85a7c;
+        }
+
+        .form button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 85px 0;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testi-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            position: relative;
+        }
+
+        .testi-card::before {
+            content: "\201C";
+            font-size: 60px;
+            color: var(--salmon);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--salmon);
+            background-size: cover;
+            display: grid;
+            place-items: center;
+        }
+
+        .author-img svg {
+            width: 20px;
+            height: 20px;
+            color: var(--wine);
+        }
+
+        .author-info h4 {
+            font-size: 14px;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        .author-info span {
+            font-size: 11px;
+            color: var(--wine-soft);
+            font-weight: 700;
+        }
+
+        .testi-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 12px;
+        }
+
+        .testi-stars svg {
+            width: 14px;
+            height: 14px;
+            color: #f5a623;
+            fill: #f5a623;
         }
 
         /* FOOTER */
@@ -1007,20 +1278,35 @@
             margin: 7px 0
         }
 
+        footer a:hover {
+            color: white;
+        }
+
         .social {
             display: flex;
             gap: 8px
         }
 
         .social a {
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: var(--wine);
             display: grid;
             place-items: center;
             color: white;
-            font-weight: 900
+            font-weight: 900;
+            transition: .2s;
+        }
+
+        .social a:hover {
+            transform: translateY(-3px);
+            background: var(--wine-soft);
+        }
+
+        .social a svg {
+            width: 16px;
+            height: 16px;
         }
 
         .copyright {
@@ -1061,11 +1347,17 @@
             cursor: pointer;
             z-index: 99;
             transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
         }
 
         .fab:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 35px rgba(123, 15, 46, 0.5);
+        }
+
+        .fab svg {
+            width: 24px;
+            height: 24px;
         }
 
         .ticker-wrap {
@@ -1103,70 +1395,349 @@
             }
         }
 
-        .testimonials {
-            padding: 85px 0;
-            background: var(--cream);
-            text-align: center;
-        }
-
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .testi-card {
-            background: white;
+        /* DIALOG & TOAST */
+        dialog {
+            border: 0;
+            border-radius: 24px;
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-            text-align: left;
-            position: relative;
+            width: min(430px, 90vw);
+            background: rgba(255, 245, 239, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: var(--ink);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, .4);
+            margin: auto;
         }
 
-        .testi-card::before {
-            content: "“";
-            font-size: 60px;
-            color: var(--salmon);
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-family: serif;
-            line-height: 1;
+        dialog::backdrop {
+            background: rgba(0, 0, 0, .4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
-        .testi-text {
-            font-style: italic;
-            color: var(--muted);
-            margin-bottom: 20px;
-            font-size: 14px;
+        .close-dlg {
+            float: right;
+            border: 0;
+            background: none;
+            font-size: 25px;
+            color: var(--ink);
+            cursor: pointer;
         }
 
-        .testi-author {
+        .total-dlg {
+            display: flex;
+            justify-content: space-between;
+            background: var(--salmon-2);
+            border-radius: 10px;
+            padding: 14px;
+            margin: 22px 0;
+        }
+
+        .total-dlg b {
+            color: var(--wine);
+            font-size: 18px;
+        }
+
+        .toast {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            background: rgba(123, 15, 46, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 13px 17px;
+            border-radius: 11px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .3s;
+            z-index: 9999;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .author-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--salmon);
-            background-size: cover;
+        .toast svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
         }
 
-        .author-info h4 {
-            font-size: 14px;
-            color: var(--ink);
-            margin: 0;
+        .toast.show {
+            opacity: 1;
+            transform: none;
         }
 
-        .author-info span {
-            font-size: 11px;
+        /* REVEAL ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.3s;
+        }
+
+        /* DARK THEME OVERRIDES */
+        [data-theme="dark"] {
+            --wine: #f7d9cd;
+            --wine-dark: #19050d;
+            --wine-deep: #220713;
+            --wine-soft: #fa3864;
+            --salmon: #270a16;
+            --salmon-2: #320d1c;
+            --cream: #19050d;
+            --ink: #ffffff;
+            --muted: #cbb2ba;
+            --border: rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(39, 10, 22, .88);
+            border-bottom-color: rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .logo-mark {
+            background: var(--cream);
+        }
+
+        [data-theme="dark"] .nav-links {
+            color: #e8d5db;
+        }
+
+        [data-theme="dark"] .nav-links a:hover {
+            color: white;
+        }
+
+        [data-theme="dark"] .nav-cta,
+        [data-theme="dark"] .primary {
+            background: linear-gradient(135deg, var(--wine-soft), var(--wine));
+            color: white;
+        }
+
+        [data-theme="dark"] .hero {
+            background: radial-gradient(circle at 78% 28%, rgba(250, 56, 100, .15), transparent 25%), linear-gradient(135deg, #320d1c 0%, #270a16 58%, #19050d 100%);
+        }
+
+        [data-theme="dark"] .eyebrow {
+            background: rgba(255, 255, 255, .05);
+            border-color: rgba(255, 255, 255, .15);
+            color: white;
+        }
+
+        [data-theme="dark"] .eyebrow span {
+            background: var(--wine-soft);
+        }
+
+        [data-theme="dark"] .hero p {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .secondary {
+            border-color: rgba(255, 255, 255, .2);
+            color: white;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        [data-theme="dark"] .secondary:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 15px 35px rgba(255, 255, 255, .15);
+        }
+
+        [data-theme="dark"] .store {
+            background: rgba(255, 255, 255, .05);
+            color: white;
+            border-color: rgba(255, 255, 255, .15);
+        }
+
+        [data-theme="dark"] .phone {
+            background: #270a16;
+            border-color: #000;
+        }
+
+        [data-theme="dark"] .app-search,
+        [data-theme="dark"] .app-card,
+        [data-theme="dark"] .bottom-nav,
+        [data-theme="dark"] .list-row {
+            background: #320d1c;
+            color: #fff;
+        }
+
+        [data-theme="dark"] .app-card-body small {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .bottom-nav {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .features {
+            background: #19050d;
+        }
+
+        [data-theme="dark"] .feature-icon {
+            background: rgba(250, 56, 100, .2);
             color: var(--wine-soft);
-            font-weight: 700;
+        }
+
+        [data-theme="dark"] .feature p {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .menu-card {
+            background: #270a16;
+        }
+
+        [data-theme="dark"] .menu-card p {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .kcal-badge {
+            background: rgba(250, 56, 100, .15);
+        }
+
+        [data-theme="dark"] .order {
+            background: linear-gradient(135deg, var(--wine-soft), var(--wine));
+            color: white;
+        }
+
+        [data-theme="dark"] .app-section {
+            background: #19050d;
+        }
+
+        [data-theme="dark"] .app-copy p {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .big-phone,
+        [data-theme="dark"] .side-phone {
+            background: #270a16;
+            border-color: #000;
+        }
+
+        [data-theme="dark"] .app-label {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .stats {
+            background: #220713;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .stats span {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .ecosystem {
+            background: #19050d;
+        }
+
+        [data-theme="dark"] .eco-list a {
+            background: #270a16;
+            color: white;
+            border-color: rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .eco-list a:hover {
+            background: #320d1c;
+        }
+
+        [data-theme="dark"] .blog {
+            background: #220713;
+        }
+
+        [data-theme="dark"] .blog-card {
+            background: #270a16;
+        }
+
+        [data-theme="dark"] .blog-body p {
+            color: #cbb2ba;
+        }
+
+        [data-theme="dark"] .read {
+            color: var(--wine-soft);
+        }
+
+        [data-theme="dark"] .newsletter-box {
+            background: linear-gradient(135deg, #320d1c, #220713);
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .form input {
+            background: #19050d;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .form button {
+            background: var(--wine-soft);
+        }
+
+        [data-theme="dark"] .testimonials {
+            background: var(--salmon-2);
+        }
+
+        [data-theme="dark"] .testi-card {
+            background: var(--cream);
+        }
+
+        [data-theme="dark"] .social a {
+            color: var(--wine);
+            background: rgba(255, 255, 255, .08);
+        }
+
+        [data-theme="dark"] .social a:hover {
+            background: rgba(255, 255, 255, .15);
+        }
+
+        [data-theme="dark"] .ticker-wrap {
+            background: #19050d;
+            color: var(--wine);
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        [data-theme="dark"] footer {
+            background: #110309;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        [data-theme="dark"] .toast {
+            background: var(--wine-soft);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            border-color: rgba(255, 255, 255, .2);
+            color: white;
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+
+        [data-theme="dark"] .fab {
+            background: linear-gradient(135deg, var(--wine-soft), #ff6b8a);
+        }
+
+        [data-theme="dark"] dialog {
+            background: rgba(39, 10, 22, 0.9);
+            color: white;
+        }
+
+        [data-theme="dark"] .total-dlg {
+            background: rgba(255, 255, 255, .05);
         }
 
         /* MOBILE */
@@ -1311,339 +1882,97 @@
             }
         }
 
-        /* REVEAL ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Mobile menu overlay */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 100;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .mobile-menu-overlay.open {
+            display: block;
         }
 
-        .reveal-delay-1 {
-            transition-delay: 0.15s;
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--cream);
+            z-index: 101;
+            padding: 28px;
+            transition: right .35s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+            box-shadow: -10px 0 40px rgba(0,0,0,.2);
         }
 
-        .reveal-delay-2 {
-            transition-delay: 0.3s;
+        .mobile-menu.open {
+            right: 0;
         }
 
-        /* THEME TOGGLE */
-        .theme-toggle {
-            background: transparent;
-            color: var(--wine);
-            border: 1px solid rgba(123, 15, 46, .2);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-size: 18px;
+        .mobile-menu-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--ink);
             cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-menu nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--ink);
+            border-bottom: 1px solid var(--border);
             transition: .2s;
         }
 
-        .theme-toggle:hover {
-            background: rgba(123, 15, 46, .1);
-        }
-
-        /* DARK THEME OVERRIDES */
-        [data-theme="dark"] {
-            --wine: #f7d9cd;
-            --wine-dark: #19050d;
-            --wine-deep: #220713;
-            --wine-soft: #fa3864;
-            --salmon: #270a16;
-            --salmon-2: #320d1c;
-            --cream: #19050d;
-            --ink: #ffffff;
-            --muted: #cbb2ba;
-            --border: rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .header {
-            background: rgba(39, 10, 22, .88);
-            border-bottom-color: rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .logo-mark {
-            background: var(--cream);
-        }
-
-        [data-theme="dark"] .nav-links {
-            color: #e8d5db;
-        }
-
-        [data-theme="dark"] .nav-links a:hover {
-            color: white;
-        }
-
-        [data-theme="dark"] .nav-cta,
-        [data-theme="dark"] .primary {
-            background: linear-gradient(135deg, var(--wine-soft), var(--wine));
-            color: white;
-        }
-
-        [data-theme="dark"] .hero {
-            background: radial-gradient(circle at 78% 28%, rgba(250, 56, 100, .15), transparent 25%), linear-gradient(135deg, #320d1c 0%, #270a16 58%, #19050d 100%);
-        }
-
-        [data-theme="dark"] .eyebrow {
-            background: rgba(255, 255, 255, .05);
-            border-color: rgba(255, 255, 255, .15);
-            color: white;
-        }
-
-        [data-theme="dark"] .eyebrow span {
-            background: var(--wine-soft);
-        }
-
-        [data-theme="dark"] .hero p {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .secondary {
-            border-color: rgba(255, 255, 255, .2);
-            color: white;
-            background: rgba(255, 255, 255, .05);
-        }
-
-        [data-theme="dark"] .secondary:hover {
-            background: white;
-            color: black;
-            box-shadow: 0 15px 35px rgba(255, 255, 255, .15);
-        }
-
-        [data-theme="dark"] .store {
-            background: rgba(255, 255, 255, .05);
-            color: white;
-            border-color: rgba(255, 255, 255, .15);
-        }
-
-        [data-theme="dark"] .phone {
-            background: #270a16;
-            border-color: #000;
-        }
-
-        [data-theme="dark"] .app-search,
-        [data-theme="dark"] .app-card,
-        [data-theme="dark"] .bottom-nav,
-        [data-theme="dark"] .list-row {
-            background: #320d1c;
-            color: #fff;
-        }
-
-        [data-theme="dark"] .app-card-body small {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .bottom-nav {
-            border-top: 1px solid rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .features {
-            background: #19050d;
-        }
-
-        [data-theme="dark"] .feature-icon {
-            background: rgba(250, 56, 100, .2);
+        .mobile-menu nav a:hover {
             color: var(--wine-soft);
         }
 
-        [data-theme="dark"] .feature p {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .menu-card {
-            background: #270a16;
-        }
-
-        [data-theme="dark"] .menu-card p {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .order {
-            background: linear-gradient(135deg, var(--wine-soft), var(--wine));
-            color: white;
-        }
-
-        [data-theme="dark"] .app-section {
-            background: #19050d;
-        }
-
-        [data-theme="dark"] .app-copy p {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .big-phone,
-        [data-theme="dark"] .side-phone {
-            background: #270a16;
-            border-color: #000;
-        }
-
-        [data-theme="dark"] .app-label {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .stats {
-            background: #220713;
-            border-top: 1px solid rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .stats span {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .ecosystem {
-            background: #19050d;
-        }
-
-        [data-theme="dark"] .eco-list a {
-            background: #270a16;
-            color: white;
-            border-color: rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .eco-list a:hover {
-            background: #320d1c;
-        }
-
-        [data-theme="dark"] .blog {
-            background: #220713;
-        }
-
-        [data-theme="dark"] .blog-card {
-            background: #270a16;
-        }
-
-        [data-theme="dark"] .blog-body p {
-            color: #cbb2ba;
-        }
-
-        [data-theme="dark"] .read {
+        .mobile-menu nav a svg {
+            width: 20px;
+            height: 20px;
             color: var(--wine-soft);
         }
 
-        [data-theme="dark"] .newsletter-box {
-            background: linear-gradient(135deg, #320d1c, #220713);
-            border: 1px solid rgba(255, 255, 255, .1);
+        .mobile-menu .mobile-cta {
+            margin-top: 24px;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
         }
 
-        [data-theme="dark"] .form input {
-            background: #19050d;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, .1);
-        }
-
-        [data-theme="dark"] .form button {
-            background: var(--wine-soft);
-        }
-
-        [data-theme="dark"] .testimonials {
-            background: var(--salmon-2);
-        }
-
-        [data-theme="dark"] .testi-card {
-            background: var(--cream);
-        }
-
-        [data-theme="dark"] .store {
-            color: var(--wine);
-            border-color: rgba(255, 255, 255, .15);
-            background: rgba(255, 255, 255, .05);
-        }
-
-        [data-theme="dark"] .social a {
-            color: var(--wine);
-            background: rgba(255, 255, 255, .08);
-        }
-        
-        [data-theme="dark"] .social a:hover {
-            background: rgba(255, 255, 255, .15);
-        }
-
-        [data-theme="dark"] .ticker-wrap {
-            background: #19050d;
-            color: var(--wine);
-            border-top: 1px solid rgba(255, 255, 255, .05);
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
-        }
-
-        [data-theme="dark"] footer {
-            background: #110309;
-            border-top: 1px solid rgba(255, 255, 255, .05);
-        }
-
-        /* DIALOG & TOAST */
-        dialog {
-            border: 0;
-            border-radius: 24px;
-            padding: 30px;
-            width: min(430px, 90vw);
-            background: rgba(255, 245, 239, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            color: var(--ink);
-            box-shadow: 0 30px 90px rgba(0, 0, 0, .4);
-            margin: auto;
-        }
-
-        dialog::backdrop {
-            background: rgba(0, 0, 0, .4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .close-dlg {
-            float: right;
-            border: 0;
-            background: none;
-            font-size: 25px;
-            color: var(--ink);
-            cursor: pointer;
-        }
-
-        .total-dlg {
-            display: flex;
-            justify-content: space-between;
-            background: var(--salmon-2);
-            border-radius: 10px;
-            padding: 14px;
-            margin: 22px 0;
-        }
-
-        .total-dlg b {
-            color: var(--wine);
-            font-size: 18px;
-        }
-
-        .toast {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            background: rgba(123, 15, 46, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: white;
-            padding: 13px 17px;
-            border-radius: 11px;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: .3s;
-            z-index: 9999;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: none;
-        }
-
-        [data-theme="dark"] .toast {
-            background: var(--wine-soft);
+        [data-theme="dark"] .mobile-menu {
+            background: #270a16;
         }
     </style>
 </head>
@@ -1664,42 +1993,86 @@
                 <a href="#blog">Blog</a>
                 <a href="#contacto">Contacto</a>
             </nav>
-            <div style="display:flex; gap:10px; align-items:center;">
-                <a href="#app" class="nav-cta">Descargar App ↓</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
-                <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+            <div class="nav-right">
+                <a href="#app" class="nav-cta">
+                    <i data-lucide="download" style="width:16px;height:16px;"></i>
+                    Descargar App
+                </a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i data-lucide="sun" class="icon-sun" style="width:20px;height:20px;"></i>
+                    <i data-lucide="moon" class="icon-moon" style="width:20px;height:20px;"></i>
+                </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+                    <i data-lucide="menu" style="width:26px;height:26px;"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-top">
+            <a href="#inicio" class="logo" style="font-size:20px;">
+                <img src="assets/images/Caseritos_logo.png" alt="Caseritos Logo" class="logo-mark" style="width:32px;height:32px;"> Caseritos
+            </a>
+            <button class="mobile-menu-close" id="mobileClose" aria-label="Cerrar menú">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <nav>
+            <a href="#inicio"><i data-lucide="home"></i> Inicio</a>
+            <a href="#ecosistema"><i data-lucide="layers"></i> Ecosistema</a>
+            <a href="#funciones"><i data-lucide="sparkles"></i> Características</a>
+            <a href="#app"><i data-lucide="smartphone"></i> App</a>
+            <a href="#blog"><i data-lucide="book-open"></i> Blog</a>
+            <a href="#contacto"><i data-lucide="mail"></i> Contacto</a>
+        </nav>
+        <a href="#app" class="primary mobile-cta" onclick="closeMobileMenu()">
+            <i data-lucide="download" style="width:16px;height:16px;"></i>
+            Descargar App
+        </a>
+    </div>
 
     <main>
 
         <section class="hero" id="inicio">
             <div class="container hero-grid">
                 <div>
-                    <div class="eyebrow"><span></span> Ecosistema Caseritos</div>
+                    <div class="eyebrow"><span></span>Ecosistema Caseritos</div>
                     <h1>Tu comida casera,<br>en una sola <strong>experiencia.</strong></h1>
-                    <p>Descubre menús, recetas, recomendaciones y herramientas para organizar tu alimentación desde un
-                        solo lugar.</p>
+                    <p>Información, comunidad y herramientas en un solo lugar. Descubre, aprende y conecta con nuestra app.</p>
 
                     <div class="hero-actions">
-                        <a class="primary" href="#app">Descargar la App &nbsp; ↓</a>
-                        <a class="secondary" href="#ecosistema">Explorar Ecosistema &nbsp; →</a>
+                        <a class="primary" href="#app">
+                            <i data-lucide="download" style="width:18px;height:18px;"></i>
+                            Descargar la App
+                        </a>
+                        <a class="secondary" href="#ecosistema">
+                            Explorar Ecosistema
+                            <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
+                        </a>
                     </div>
 
                     <div class="store-row">
-                        <span class="store">● &nbsp; App Store</span>
-                        <span class="store">▶ &nbsp; Google Play</span>
+                        <span class="store">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            App Store
+                        </span>
+                        <span class="store">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 1.33a1 1 0 0 1 0 1.724l-2.302 1.33-2.523-2.527 2.523-2.527zM5.864 3.458l10.937 6.333-2.302 2.302-8.635-8.635z"/></svg>
+                            Google Play
+                        </span>
                     </div>
                 </div>
 
-                <div class="phones" aria-label="Vista previa de la aplicación Caseritos">
+                <div class="phones" aria-label="Vista previa de la aplicación">
                     <div class="phone left">
                         <div class="notch"></div>
                         <div class="app-top"><b>Mi Cocina</b>
                             <div class="avatar"></div>
                         </div>
-                        <div class="app-search">⌕ &nbsp; Buscar recetas, ingredientes...</div>
+                        <div class="app-search"><i data-lucide="search" style="width:12px;height:12px;flex-shrink:0;"></i> Buscar recetas, ingredientes...</div>
                         <div class="app-title">Recomendado para ti</div>
                         <div class="app-card">
                             <div class="food-img food-c"></div>
@@ -1710,15 +2083,19 @@
                         <div class="app-card">
                             <div class="app-card-body"><b>Sopa de lentejas</b><small>300 Kcal · Casera</small></div>
                         </div>
-                        <div class="bottom-nav"><b>⌂ Inicio</b><span>♡ Favoritos</span><span>☷ Lista</span></div>
+                        <div class="bottom-nav">
+                            <div class="bottom-nav-item active"><i data-lucide="home" style="width:14px;height:14px;"></i><span>Inicio</span></div>
+                            <div class="bottom-nav-item"><i data-lucide="heart" style="width:14px;height:14px;"></i><span>Favoritos</span></div>
+                            <div class="bottom-nav-item"><i data-lucide="list" style="width:14px;height:14px;"></i><span>Lista</span></div>
+                        </div>
                     </div>
 
                     <div class="phone center">
                         <div class="notch"></div>
-                        <div class="app-top"><b>¡Hola, María! 👋</b>
+                        <div class="app-top"><b>¡Hola, Ana! 👋</b>
                             <div class="avatar"></div>
                         </div>
-                        <div class="app-search">⌕ &nbsp; ¿Qué vas a cocinar hoy?</div>
+                        <div class="app-search"><i data-lucide="search" style="width:12px;height:12px;flex-shrink:0;"></i> ¿Qué vas a cocinar hoy?</div>
                         <div class="app-title">Menú del Día</div>
                         <div class="chips"><span class="chip">Recomendados</span><span
                                 class="chip">Proteicos</span><span class="chip">Veggie</span></div>
@@ -1736,20 +2113,29 @@
                                 <div class="price">$9.50</div>
                             </div>
                         </div>
-                        <div class="bottom-nav"><b>⌂ Inicio</b><span>▣ Pedidos</span><span>♡ Favoritos</span><span>◯
-                                Perfil</span></div>
+                        <div class="bottom-nav">
+                            <div class="bottom-nav-item active"><i data-lucide="home" style="width:14px;height:14px;"></i><span>Inicio</span></div>
+                            <div class="bottom-nav-item"><i data-lucide="shopping-bag" style="width:14px;height:14px;"></i><span>Pedidos</span></div>
+                            <div class="bottom-nav-item"><i data-lucide="heart" style="width:14px;height:14px;"></i><span>Favoritos</span></div>
+                            <div class="bottom-nav-item"><i data-lucide="user" style="width:14px;height:14px;"></i><span>Perfil</span></div>
+                        </div>
                     </div>
 
                     <div class="phone right">
                         <div class="notch"></div>
-                        <div class="app-top"><b>Detalle de receta</b><span>‹</span></div>
+                        <div class="app-top"><b>Detalle de receta</b><span><i data-lucide="chevron-left" style="width:16px;height:16px;"></i></span></div>
                         <div class="food-img food-a" style="margin:0 12px;border-radius:15px"></div>
                         <div class="app-title">Bowl Proteico de Pollo</div>
-                        <div class="list-row">✓ Pollo a la plancha</div>
-                        <div class="list-row">✓ Quinoa</div>
-                        <div class="list-row">✓ Aguacate</div>
-                        <div class="list-row">✓ Vegetales frescos</div>
-                        <div class="bottom-nav"><b>Ver preparación →</b></div>
+                        <div class="list-row"><i data-lucide="check-circle" style="width:12px;height:12px;color:var(--wine-soft);"></i> Pollo a la plancha</div>
+                        <div class="list-row"><i data-lucide="check-circle" style="width:12px;height:12px;color:var(--wine-soft);"></i> Quinoa</div>
+                        <div class="list-row"><i data-lucide="check-circle" style="width:12px;height:12px;color:var(--wine-soft);"></i> Aguacate</div>
+                        <div class="list-row"><i data-lucide="check-circle" style="width:12px;height:12px;color:var(--wine-soft);"></i> Vegetales frescos</div>
+                        <div class="bottom-nav">
+                            <div class="bottom-nav-item active" style="flex-direction:row;gap:6px;">
+                                <span style="font-weight:800;font-size:9px;">Ver preparación</span>
+                                <i data-lucide="arrow-right" style="width:12px;height:12px;"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1767,31 +2153,31 @@
         <section class="features" id="funciones">
             <div class="container feature-grid">
                 <article class="feature">
-                    <div class="feature-icon">♨</div>
+                    <div class="feature-icon"><i data-lucide="book-open"></i></div>
                     <div>
-                        <h3>Menús balanceados</h3>
-                        <p>Opciones pensadas para una alimentación completa.</p>
+                        <h3>Información Curada</h3>
+                        <p>Guías, recetas y novedades del mundo casero.</p>
                     </div>
                 </article>
                 <article class="feature">
-                    <div class="feature-icon">◎</div>
+                    <div class="feature-icon"><i data-lucide="users"></i></div>
                     <div>
-                        <h3>Recomendaciones personalizadas</h3>
-                        <p>Contenido según tus gustos y preferencias.</p>
+                        <h3>Comunidad Activa</h3>
+                        <p>Conecta con amantes de la comida y comparte recetas.</p>
                     </div>
                 </article>
                 <article class="feature">
-                    <div class="feature-icon">◷</div>
+                    <div class="feature-icon"><i data-lucide="wrench"></i></div>
                     <div>
-                        <h3>Ahorra tiempo</h3>
-                        <p>Encuentra qué comer sin complicaciones.</p>
+                        <h3>Herramientas Útiles</h3>
+                        <p>Organiza tu cocina, crea listas y guarda tus recetas favoritas.</p>
                     </div>
                 </article>
                 <article class="feature">
-                    <div class="feature-icon">⌁</div>
+                    <div class="feature-icon"><i data-lucide="smartphone"></i></div>
                     <div>
-                        <h3>Ingredientes frescos</h3>
-                        <p>Recetas y propuestas para cada día.</p>
+                        <h3>App Siempre Contigo</h3>
+                        <p>Accede a todo desde tu móvil, donde sea que estés.</p>
                     </div>
                 </article>
             </div>
@@ -1812,28 +2198,31 @@
                     <article class="menu-card">
                         <div class="menu-image food-a"></div>
                         <div class="menu-content">
+                            <div class="kcal-badge"><i data-lucide="flame"></i> 450 Kcal</div>
                             <h3>Bowl Proteico de Pollo</h3>
                             <p>Pollo a la plancha, quinoa, aguacate y vegetales al vapor.</p>
                             <div class="menu-bottom"><span class="menu-price">$8.50</span><button class="order"
-                                    data-name="Bowl Proteico de Pollo" data-price="8.50">Pedir →</button></div>
+                                    data-name="Bowl Proteico de Pollo" data-price="8.50"><i data-lucide="shopping-cart"></i> Pedir</button></div>
                         </div>
                     </article>
                     <article class="menu-card">
                         <div class="menu-image food-b"></div>
                         <div class="menu-content">
+                            <div class="kcal-badge"><i data-lucide="flame"></i> 380 Kcal</div>
                             <h3>Ensalada Gourmet con Salmón</h3>
                             <p>Salmón fresco, mix de verdes, aderezo cítrico y semillas.</p>
                             <div class="menu-bottom"><span class="menu-price">$9.50</span><button class="order"
-                                    data-name="Ensalada Gourmet con Salmón" data-price="9.50">Pedir →</button></div>
+                                    data-name="Ensalada Gourmet con Salmón" data-price="9.50"><i data-lucide="shopping-cart"></i> Pedir</button></div>
                         </div>
                     </article>
                     <article class="menu-card">
                         <div class="menu-image food-c"></div>
                         <div class="menu-content">
+                            <div class="kcal-badge"><i data-lucide="flame"></i> 300 Kcal</div>
                             <h3>Ensalada Fresca Caserita</h3>
                             <p>Vegetales frescos, aguacate y una preparación ligera.</p>
                             <div class="menu-bottom"><span class="menu-price">$7.90</span><button class="order"
-                                    data-name="Ensalada Fresca Caserita" data-price="7.90">Pedir →</button></div>
+                                    data-name="Ensalada Fresca Caserita" data-price="7.90"><i data-lucide="shopping-cart"></i> Pedir</button></div>
                         </div>
                     </article>
                 </div>
@@ -1843,47 +2232,58 @@
         <section class="section app-section" id="app">
             <div class="container app-grid">
                 <div class="app-copy">
-                    <div class="kicker" style="color:#f08aa4">La app</div>
-                    <h2>Todo lo que necesitas, en la palma de tu mano.</h2>
-                    <p>Caseritos convierte la comida diaria en una experiencia sencilla: descubre opciones, guarda tus
-                        favoritas y organiza tus pedidos desde tu teléfono.</p>
+                    <div class="kicker" style="color:#f08aa4">
+                        <i data-lucide="smartphone" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:4px;"></i>
+                        La app
+                    </div>
+                    <h2>Caseritos contigo en cada momento.</h2>
+                    <p>Tu cocina organizada, recetas deliciosas y comunidad, todo en tu bolsillo.</p>
 
                     <div class="checks">
-                        <div class="check"><span>✓</span> Menú del día actualizado</div>
-                        <div class="check"><span>✓</span> Recomendaciones según tus preferencias</div>
-                        <div class="check"><span>✓</span> Pedidos en pocos pasos</div>
-                        <div class="check"><span>✓</span> Historial y favoritos</div>
+                        <div class="check"><span><i data-lucide="check"></i></span> Menú del día actualizado</div>
+                        <div class="check"><span><i data-lucide="check"></i></span> Recomendaciones según tus preferencias</div>
+                        <div class="check"><span><i data-lucide="check"></i></span> Pedidos en pocos pasos</div>
+                        <div class="check"><span><i data-lucide="check"></i></span> Historial y favoritos</div>
                     </div>
 
-                    <a href="#" class="primary" onclick="downloadApp(event)">Descargar ahora ↓</a>
+                    <div class="store-row">
+                        <a href="#" class="store" onclick="downloadApp(event)" style="cursor:pointer;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            App Store
+                        </a>
+                        <a href="#" class="store" onclick="downloadApp(event)" style="cursor:pointer;">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 1.33a1 1 0 0 1 0 1.724l-2.302 1.33-2.523-2.527 2.523-2.527zM5.864 3.458l10.937 6.333-2.302 2.302-8.635-8.635z"/></svg>
+                            Google Play
+                        </a>
+                    </div>
                 </div>
 
                 <div class="app-visual">
                     <div class="side-phone left-side">
                         <div class="notch"></div>
                         <div class="app-label">Mis favoritos</div>
-                        <div class="list-row">♡ Bowl Proteico</div>
-                        <div class="list-row">♡ Ensalada Gourmet</div>
-                        <div class="list-row">♡ Sopa Casera</div>
+                        <div class="list-row"><i data-lucide="heart" style="width:12px;height:12px;color:var(--wine-soft);"></i> Bowl Proteico</div>
+                        <div class="list-row"><i data-lucide="heart" style="width:12px;height:12px;color:var(--wine-soft);"></i> Ensalada Gourmet</div>
+                        <div class="list-row"><i data-lucide="heart" style="width:12px;height:12px;color:var(--wine-soft);"></i> Sopa Casera</div>
                     </div>
                     <div class="big-phone">
                         <div class="notch"></div>
-                        <div class="app-top"><b>¡Hola, María! 👋</b>
+                        <div class="app-top"><b>¡Hola, Ana! 👋</b>
                             <div class="avatar"></div>
                         </div>
-                        <div class="app-search">⌕ &nbsp; Buscar recetas...</div>
+                        <div class="app-search"><i data-lucide="search" style="width:12px;height:12px;flex-shrink:0;"></i> Buscar recetas...</div>
                         <div class="food-img food-a"></div>
                         <div class="app-title">Bowl Proteico de Pollo</div>
-                        <div class="list-row">★ 4.8 · 450 Kcal</div>
-                        <div class="list-row">Ingredientes frescos y preparación casera.</div>
+                        <div class="list-row"><i data-lucide="star" style="width:12px;height:12px;color:#f5a623;fill:#f5a623;"></i> 4.8 · 450 Kcal</div>
+                        <div class="list-row"><i data-lucide="info" style="width:12px;height:12px;color:var(--wine-soft);"></i> Ingredientes frescos y preparación casera.</div>
                     </div>
                     <div class="side-phone">
                         <div class="notch"></div>
                         <div class="app-label">Mi Perfil</div>
-                        <div class="list-row">Mis pedidos →</div>
-                        <div class="list-row">Direcciones →</div>
-                        <div class="list-row">Favoritos →</div>
-                        <div class="list-row">Configuración →</div>
+                        <div class="list-row"><i data-lucide="package" style="width:12px;height:12px;color:var(--wine-soft);"></i> Mis pedidos <i data-lucide="chevron-right" style="width:10px;height:10px;margin-left:auto;"></i></div>
+                        <div class="list-row"><i data-lucide="map-pin" style="width:12px;height:12px;color:var(--wine-soft);"></i> Direcciones <i data-lucide="chevron-right" style="width:10px;height:10px;margin-left:auto;"></i></div>
+                        <div class="list-row"><i data-lucide="heart" style="width:12px;height:12px;color:var(--wine-soft);"></i> Favoritos <i data-lucide="chevron-right" style="width:10px;height:10px;margin-left:auto;"></i></div>
+                        <div class="list-row"><i data-lucide="settings" style="width:12px;height:12px;color:var(--wine-soft);"></i> Configuración <i data-lucide="chevron-right" style="width:10px;height:10px;margin-left:auto;"></i></div>
                     </div>
                 </div>
             </div>
@@ -1891,10 +2291,22 @@
 
         <section class="stats">
             <div class="container stats-grid">
-                <div class="stat"><strong>25K+</strong><span>Usuarios activos</span></div>
-                <div class="stat"><strong>8K+</strong><span>Recetas compartidas</span></div>
-                <div class="stat"><strong>120+</strong><span>Artículos y guías</span></div>
-                <div class="stat"><strong>60+</strong><span>Eventos y talleres</span></div>
+                <div class="stat">
+                    <div class="stat-icon"><i data-lucide="users"></i></div>
+                    <strong>25K+</strong><span>Usuarios activos</span>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon"><i data-lucide="chef-hat"></i></div>
+                    <strong>8K+</strong><span>Recetas compartidas</span>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon"><i data-lucide="book-open"></i></div>
+                    <strong>120+</strong><span>Artículos y guías</span>
+                </div>
+                <div class="stat">
+                    <div class="stat-icon"><i data-lucide="calendar"></i></div>
+                    <strong>60+</strong><span>Eventos y talleres</span>
+                </div>
             </div>
         </section>
 
@@ -1907,10 +2319,10 @@
                     <p>Contenido, herramientas y comunidad para ayudarte a descubrir nuevas recetas, organizar tu cocina
                         y hacer más sencilla tu alimentación diaria.</p>
                     <div class="eco-list">
-                        <a href="#blog">Blog y novedades <span>→</span></a>
-                        <a href="#funciones">Guías y aprendizaje <span>→</span></a>
-                        <a href="#menu">Menú y recomendaciones <span>→</span></a>
-                        <a href="#contacto">Comunidad Caseritos <span>→</span></a>
+                        <a href="#blog">Blog y novedades <i data-lucide="arrow-right"></i></a>
+                        <a href="#funciones">Guías y aprendizaje <i data-lucide="arrow-right"></i></a>
+                        <a href="#menu">Menú y recomendaciones <i data-lucide="arrow-right"></i></a>
+                        <a href="#contacto">Comunidad Caseritos <i data-lucide="arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1930,24 +2342,25 @@
                     <article class="blog-card">
                         <div class="blog-img food-a"></div>
                         <div class="blog-body"><small>RECETAS</small>
-                            <h3>5 recetas rápidas para la semana</h3>
-                            <p>Opciones sencillas para cocinar sin perder tiempo.</p><a class="read" href="#">Leer más
-                                →</a>
+                            <h3>5 tips para cocinar más saludable en casa</h3>
+                            <p>Opciones sencillas para cocinar sin perder tiempo.</p>
+                            <a class="read" href="#">Leer más <i data-lucide="arrow-right"></i></a>
                         </div>
                     </article>
                     <article class="blog-card">
                         <div class="blog-img food-b"></div>
                         <div class="blog-body"><small>ALIMENTACIÓN</small>
-                            <h3>Cómo organizar tu menú semanal</h3>
-                            <p>Una guía para planificar mejor tus comidas.</p><a class="read" href="#">Leer más →</a>
+                            <h3>Meal prep: organiza tu semana en 1 hora</h3>
+                            <p>Una guía para planificar mejor tus comidas.</p>
+                            <a class="read" href="#">Leer más <i data-lucide="arrow-right"></i></a>
                         </div>
                     </article>
                     <article class="blog-card">
                         <div class="blog-img food-c"></div>
                         <div class="blog-body"><small>CONSEJOS</small>
                             <h3>Ingredientes que nunca deberían faltar</h3>
-                            <p>Ideas para mantener una cocina práctica y versátil.</p><a class="read" href="#">Leer más
-                                →</a>
+                            <p>Ideas para mantener una cocina práctica y versátil.</p>
+                            <a class="read" href="#">Leer más <i data-lucide="arrow-right"></i></a>
                         </div>
                     </article>
                 </div>
@@ -1960,10 +2373,13 @@
                 <h2>Lo que dicen de nosotros</h2>
                 <div class="testi-grid">
                     <div class="testi-card">
+                        <div class="testi-stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
                         <div class="testi-text">"La comida es deliciosa y las porciones son perfectas. Siento que
                             realmente me estoy cuidando y ya no me estreso por cocinar."</div>
                         <div class="testi-author">
-                            <div class="author-img"></div>
+                            <div class="author-img"><i data-lucide="user"></i></div>
                             <div class="author-info">
                                 <h4>Andrea López</h4>
                                 <span>CLIENTE FRECUENTE</span>
@@ -1971,10 +2387,13 @@
                         </div>
                     </div>
                     <div class="testi-card">
+                        <div class="testi-stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
                         <div class="testi-text">"La app es súper fácil de usar. Hago mis pedidos de la semana en 5
                             minutos y me olvido del tema. ¡Altamente recomendados!"</div>
                         <div class="testi-author">
-                            <div class="author-img"></div>
+                            <div class="author-img"><i data-lucide="user"></i></div>
                             <div class="author-info">
                                 <h4>Carlos Ruiz</h4>
                                 <span>SUSCRIPTOR ANUAL</span>
@@ -1982,10 +2401,13 @@
                         </div>
                     </div>
                     <div class="testi-card">
+                        <div class="testi-stars">
+                            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                        </div>
                         <div class="testi-text">"Me encanta que las recetas sean tan caseras y nutritivas. Mi familia
                             está feliz y yo tengo más tiempo libre. 10/10."</div>
                         <div class="testi-author">
-                            <div class="author-img"></div>
+                            <div class="author-img"><i data-lucide="user"></i></div>
                             <div class="author-info">
                                 <h4>Mariana Salas</h4>
                                 <span>CLIENTE NUEVA</span>
@@ -2001,10 +2423,12 @@
                 <div class="newsletter-box">
                     <div>
                         <h2>Quédate cerca de Caseritos.</h2>
-                        <p>Recibe recetas, novedades y promociones directamente en tu correo.</p>
+                        <p>Recibe recetas, tips y novedades cada semana.</p>
                     </div>
-                    <form class="form" id="newsletterForm"><input type="email" id="email"
-                            placeholder="Tu correo electrónico" required><button type="submit">→</button></form>
+                    <form class="form" id="newsletterForm">
+                        <input type="email" id="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit"><i data-lucide="arrow-right"></i></button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -2017,67 +2441,99 @@
                 <div>
                     <div class="logo footer-logo"><img src="assets/images/Caseritos_logo.png" alt="Caseritos Logo"
                             class="logo-mark"> Caseritos</div>
-                    <p>Tu ecosistema de comida casera, saludable, práctico y delicioso.</p>
+                    <p>Tu ecosistema de comida casera y saludable. Información, recetas y comunidad en un solo lugar.</p>
                 </div>
                 <div>
-                    <h4>NAVEGACIÓN</h4><a href="#inicio">Inicio</a><a href="#ecosistema">Ecosistema</a><a
-                        href="#funciones">Características</a><a href="#app">App</a>
+                    <h4>NAVEGACIÓN</h4>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#ecosistema">Ecosistema</a>
+                    <a href="#funciones">Características</a>
+                    <a href="#app">App</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contacto">Contacto</a>
                 </div>
                 <div>
-                    <h4>RECURSOS</h4><a href="#menu">Menú del día</a><a href="#blog">Blog</a><a href="#">Preguntas
-                        frecuentes</a><a href="#">Política de privacidad</a>
+                    <h4>RECURSOS</h4>
+                    <a href="#menu">Guías</a>
+                    <a href="#menu">Recetas</a>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
                 </div>
                 <div>
                     <h4>SÍGUENOS</h4>
-                    <div class="social"><a href="#">ig</a><a href="#">f</a><a href="#">▶</a><a href="#">t</a></div>
+                    <div class="social">
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    </div>
+                    <div style="margin-top:18px;">
+                        <h4>NEWSLETTER</h4>
+                        <p>Recibe recetas, tips y novedades cada semana.</p>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">© 2026 Caseritos. Todos los derechos reservados.</div>
+            <div class="copyright">© 2024 Caseritos. Todos los derechos reservados.</div>
         </div>
     </footer>
 
     <dialog id="orderDialog">
-        <button class="close-dlg" id="closeDlg">×</button>
+        <button class="close-dlg" id="closeDlg">
+            <i data-lucide="x" style="width:22px;height:22px;"></i>
+        </button>
         <div class="kicker">PEDIDO CASERITOS</div>
         <h2 id="dtitle" style="margin-top:5px;font-size:24px;">Tu pedido</h2>
         <p style="font-size:14px;color:var(--muted);margin-top:8px;">Tu selección está lista. En la app podrás elegir
             sucursal y método de pago.</p>
         <div class="total-dlg"><span>Total</span><b id="dtotal">$0.00</b></div>
-        <button class="primary" id="confirmDlg" style="width:100%">Confirmar pedido</button>
+        <button class="primary" id="confirmDlg" style="width:100%;justify-content:center;">
+            <i data-lucide="check-circle" style="width:18px;height:18px;"></i>
+            Confirmar pedido
+        </button>
     </dialog>
     <div class="toast" id="toast"></div>
-    <div class="fab" aria-label="Contacto" onclick="showToast('¡Hola! En breve habilitaremos el soporte por chat.')">💬
-    </div>
+    <button class="fab" aria-label="Contacto" id="fabBtn">
+        <i data-lucide="message-circle"></i>
+    </button>
 
     <script>
-        // Menu Mobile
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.querySelector('.nav-links');
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-        menuBtn.addEventListener('click', () => {
-            const open = navLinks.dataset.open === 'true';
-            navLinks.dataset.open = String(!open);
-            navLinks.style.display = open ? '' : 'flex';
-            if (!open) {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '76px';
-                navLinks.style.left = '14px';
-                navLinks.style.right = '14px';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.alignItems = 'stretch';
-                navLinks.style.padding = '20px';
-                navLinks.style.borderRadius = '18px';
-                navLinks.style.background = 'var(--salmon-2)';
-                navLinks.style.boxShadow = '0 18px 40px rgba(0,0,0,.2)';
-                navLinks.style.zIndex = '99';
-            }
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileClose = document.getElementById('mobileClose');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openMobileMenu);
+        mobileClose.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Toast Notifications
         let timer;
         function showToast(text) {
             const t = document.getElementById('toast');
-            t.textContent = text;
+            t.innerHTML = '<i data-lucide="check-circle" style="width:18px;height:18px;flex-shrink:0;"></i> ' + text;
+            lucide.createIcons({ nodes: [t] });
             t.classList.add('show');
             clearTimeout(timer);
             timer = setTimeout(() => t.classList.remove('show'), 3500);
@@ -2100,6 +2556,11 @@
             showToast(`¡${currentOrder.name} fue agregado a tu pedido!`);
         };
 
+        // Close dialog on backdrop click
+        dialog.addEventListener('click', (e) => {
+            if (e.target === dialog) dialog.close();
+        });
+
         function downloadApp(e) {
             e.preventDefault();
             showToast('La descarga de la App estará disponible próximamente.');
@@ -2107,29 +2568,32 @@
 
         document.getElementById('newsletterForm').addEventListener('submit', function (e) {
             e.preventDefault();
+            const email = document.getElementById('email').value;
             showToast('¡Gracias por suscribirte a Caseritos!');
             this.reset();
         });
 
+        // FAB button
+        document.getElementById('fabBtn').addEventListener('click', () => {
+            showToast('¡Hola! En breve habilitaremos el soporte por chat.');
+        });
+
         // Theme Switcher Logic
         const themeToggle = document.getElementById('themeToggle');
-        if (document.documentElement.getAttribute('data-theme') === 'dark') {
-            themeToggle.textContent = '☀️';
-        }
+
         themeToggle.addEventListener('click', () => {
             const root = document.documentElement;
             let currentTheme = root.getAttribute('data-theme');
 
             if (currentTheme === 'dark') {
                 root.removeAttribute('data-theme');
-                themeToggle.textContent = '🌙';
                 localStorage.setItem('caseritos-theme', 'light');
             } else {
                 root.setAttribute('data-theme', 'dark');
-                themeToggle.textContent = '☀️';
                 localStorage.setItem('caseritos-theme', 'dark');
             }
         });
+
         // Reveal Animations Logic
         const revealElements = document.querySelectorAll('.hero-grid > div, .feature, .menu-card, .app-copy, .app-visual, .stat, .eco-copy, .eco-image, .blog-card');
         revealElements.forEach((el, index) => {

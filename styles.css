@@ -127,8 +127,8 @@ img {
     padding: 13px 26px;
     border-radius: var(--radius-full);
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
     border: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -182,8 +182,8 @@ img {
 }
 
 .btn-lg {
-    padding: 15px 30px;
-    font-size: 1.02rem;
+    padding: 16px 36px;
+    font-size: 1.05rem;
 }
 
 /* Badges */
@@ -247,9 +247,7 @@ img {
     -webkit-text-fill-color: transparent;
 }
 
-/* ==========================================================================
-   Header & Navbar (Beige Theme with Luxury Glass Feel)
-   ========================================================================== */
+/* Header & Navbar (Beige Theme with Luxury Glass Feel) */
 
 .navbar-wrapper {
     position: sticky;
@@ -263,7 +261,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 28px;
+    padding: 10px 12px 10px 32px;
     background: rgba(246, 235, 224, 0.94);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -381,9 +379,10 @@ img {
 .stores-label {
     font-size: 0.85rem;
     color: var(--text-dim);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-bottom: 4px;
 }
 
 .store-buttons {
@@ -392,21 +391,21 @@ img {
 }
 
 .store-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--text-white);
-    padding: 8px 18px;
-    border-radius: var(--radius-md);
+    padding: 10px 22px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
 }
 
 .store-btn i {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #fff;
 }
 
